@@ -1,0 +1,40 @@
+//Create a user
+POST http://localhost:8080/api/members
+Content-Type: application/json
+
+{
+  "email": "user1@test.ch",
+  "firstname": "User",
+  "lastname": "1",
+  "cardId": "29C873A"
+}
+
+###
+
+//Create a second user
+POST http://localhost:8080/api/members
+Content-Type: application/json
+
+{
+  "email": "user2@test.ch",
+  "firstname": "User",
+  "lastname": "2",
+  "cardId": "B9BC75A"
+}
+
+###
+
+//Create a second user
+GET http://localhost:8080/api/members
+
+###
+
+//Verify a card from User 1
+GET http://localhost:8080/api/members/verify/29C873A
+
+###
+
+//Verify a card from User 2
+GET http://localhost:8080/api/members/verify/B9BC75A
+
+###
