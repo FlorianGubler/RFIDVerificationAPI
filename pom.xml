@@ -11,9 +11,9 @@
 	</parent>
 
 	<groupId>com.github.floriangubler</groupId>
-	<artifactId>coworkspacemgr</artifactId>
+	<artifactId>m306</artifactId>
 	<version>1.0.0</version>
-	<name>coworkspace-manager</name>
+	<name>rfid-authapi</name>
 	<description>M223 Coworkspace Abschlussprojekt</description>
 
 	<properties>
