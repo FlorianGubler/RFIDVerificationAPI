@@ -38,3 +38,8 @@ GET http://localhost:8080/api/members/verify/29C873A
 GET http://localhost:8080/api/members/verify/B9BC75A
 
 ###
+
+//BAD CASE - Invalid Card
+GET http://localhost:8080/api/members/verify/B9BC75B
+
+###

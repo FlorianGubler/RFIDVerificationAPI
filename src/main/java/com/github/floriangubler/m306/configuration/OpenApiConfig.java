@@ -14,14 +14,14 @@ public class OpenApiConfig {
     @Bean
     public GroupedOpenApi publicApi() {
         return GroupedOpenApi.builder()
-                .packagesToScan("com.github.floriangubler.coworkspacemgr.controller")
-                .group("coworkspace-api")
+                .packagesToScan("com.github.floriangubler.m306.controller")
+                .group("RFID Auth API")
                 .build();
     }
 
     @Bean
     public OpenAPI openAPI() {
         return new OpenAPI()
-                .info(new Info().title("COWORKSPACE API").version("v1.0.0"));
+                .info(new Info().title("RFID AUTH API").version("v1.0.0"));
     }
 }
