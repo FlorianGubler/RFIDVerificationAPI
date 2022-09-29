@@ -7,6 +7,7 @@ import com.google.common.hash.Hashing;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/members")
 @Tag(name = "Members", description = "RFID Users management endpoints")
+@Slf4j
 public class MemberController {
 
     private final MemberRepository repository;
@@ -33,6 +35,7 @@ public class MemberController {
     )
     @GetMapping
     List<MemberEntity> loadUsers() {
+        log.info("Load Users");
         return repository.findAll();
     }
 
@@ -42,6 +45,7 @@ public class MemberController {
     )
     @GetMapping("/verify/{cardid}")
     ResponseEntity<MemberEntity> verifyCardId(@PathVariable String cardid) {
+        log.info("Verify Card: " + cardid);
         if(repository.findByCardId(getSHA256(cardid)).isPresent()){
             return new ResponseEntity<>(repository.findByCardId(getSHA256(cardid)).get(), HttpStatus.OK);
         } else{
@@ -58,6 +62,7 @@ public class MemberController {
             @io.swagger.v3.oas.annotations.parameters.RequestBody(description = "Member", required = true)
             @RequestBody(required = true)
             MemberEntity member) {
+        log.info("Create new Member");
         try{
             member.setId(UUID.randomUUID());
             member.setCardId(getSHA256(member.getCardId()));
@@ -77,7 +82,8 @@ public class MemberController {
             @Parameter(description = "MemberID", required = true)
             @PathVariable(name = "memberid", required = true)
             UUID memberid) {
-            try{
+        log.info("Delet Member: " + memberid);
+        try{
                 if(repository.findById(memberid).isEmpty()){
                     throw new UserNotFoundException("User with given ID not found");
                 } else{
