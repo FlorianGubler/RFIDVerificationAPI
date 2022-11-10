@@ -6,7 +6,7 @@ Content-Type: application/json
   "email": "user1@test.ch",
   "firstname": "User",
   "lastname": "1",
-  "cardId": "29C873A"
+  "cardId": "146213128"
 }
 
 ###
@@ -19,27 +19,27 @@ Content-Type: application/json
   "email": "user2@test.ch",
   "firstname": "User",
   "lastname": "2",
-  "cardId": "B9BC75A"
+  "cardId": "18518811710"
 }
 
 ###
 
-//Create a second user
+//Get Users
 GET http://localhost:8080/api/members
 
 ###
 
 //Verify a card from User 1
-GET http://localhost:8080/api/members/verify/29C873A
+GET http://localhost:8080/api/members/verify/18518811710
 
 ###
 
 //Verify a card from User 2
-GET http://localhost:8080/api/members/verify/B9BC75A
+GET http://localhost:8080/api/members/verify/18518811710
 
 ###
 
 //BAD CASE - Invalid Card
-GET http://localhost:8080/api/members/verify/B9BC75B
+GET http://localhost:8080/api/members/verify/18518811711
 
 ###
