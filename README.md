@@ -1,2 +1,2 @@
-# m306_rfidAPI
+# RFID Verification API
 RFID Verify API (User Management)
